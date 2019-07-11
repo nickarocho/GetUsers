@@ -9,7 +9,10 @@ chai.use(sinonChai);
 var getUsers = require('../get_users');
 
 describe('GetUsers Tests', function () {
-    it('Can get users', function () {
-        getUsers();
+
+    it('Calls the callback', function () {
+        var spy = sinon.spy();
+        getUsers(spy);
+        spy.should.have.been.calledOnce;
     });
 });
